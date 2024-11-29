@@ -126,7 +126,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                <p>Softcode © 2024 All rights reserved</p>
+                <p>Softcode i Sverige AB © 2024 All rights reserved</p>
             </div>
         </div>
     </footer>

@@ -473,10 +473,13 @@ textarea {
 
 /* Contact us Page */
 .map{
-    padding-bottom:0;
+    padding-bottom:35px;
+    text-align: center;
+    margin: 0 auto;
 }
 .map img{
     display:block;
+    margin:0 auto;
 }
 .contact-info{
     display: grid;

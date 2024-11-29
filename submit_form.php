@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $additionalInfo = htmlspecialchars($_POST['additional_info']);
 
     $resumePath = "";
+    $resumeName = "";
     if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = 'uploads/';
         if (!is_dir($uploadDir)) {
@@ -34,13 +35,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                  "City: $city\n" .
                  "LinkedIn: $linkedin\n" .
                  "Additional Info: $additionalInfo\n";
+    
+    $boundary = md5(time());
+
+    $headers = "From: $email\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+
+    $message = "--$boundary\r\n";
+    $message .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 7bit\r\n";
+    $message .= "$emailBody\r\n";
+
     if ($resumePath) {
-        $emailBody .= "Resume: Attached at $resumePath\n";
+        $fileContent = file_get_contents($resumePath);
+        $fileContent = chunk_split(base64_encode($fileContent));
+
+        $message .= "--$boundary\r\n";
+        $message .= "Content-Type: application/octet-stream; name=\"$resumeName\"\r\n";
+        $message .= "Content-Transfer-Encoding: base64\r\n";
+        $message .= "Content-Disposition: attachment; filename=\"$resumeName\"\r\n";
+        $message .= "$fileContent\r\n";
     }
 
-    $headers = "From: $email";
+    $message .= "--$boundary--";
 
-    if (mail($to, $subject, $emailBody, $headers)) {
+    if (mail($to, $subject, $message, $headers)) {
         header("Location: join-us.php?message=Thank you for contacting us!");
     } else {
         header("Location: join-us.php?error=Sorry, something went wrong. Please try again.");
