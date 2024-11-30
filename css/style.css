@@ -476,6 +476,12 @@ textarea {
     padding-bottom:35px;
     text-align: center;
     margin: 0 auto;
+    max-width: 1440px;
+    overflow: hidden;
+}
+.map-area{
+    width:100% !important;
+    max-width: 1440px;
 }
 .map img{
     display:block;
@@ -656,6 +662,10 @@ textarea {
         padding: 10px 0 20px;
         width:100%;
         float:none;
+    }
+    .map iframe{
+        width: 100%;
+        overflow: hidden;
     }
 }
 
