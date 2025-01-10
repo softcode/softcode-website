@@ -7,8 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="js/script.js"></script>
+    <script src="js/contact-us.js" async></script>
 </head>
 <body>
     <div class="container">
@@ -17,21 +18,21 @@
                 <a href="index.html" class="logo"><img src="images/softcode-logo.png" alt=""></a>
                 <div class="menu-icon" id="menu-icon"></div>
                 <ul class="menu">
-                    <li><a href="about-us.html">About us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="cases.html">Cases</a></li>
-                    <li class="active"><a href="join-us.php">Join us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about-us">About us</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="cases">Cases</a></li>
+                    <li class="active"><a href="join-us">Join us</a></li>
+                    <li><a href="contact">Contact</a></li>
                 </ul>
             </div>
         </header>
         <nav class="mobile-menu" id="mobile-menu">
             <ul>
-                <li><a href="about-us.html">About us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="cases.html">Cases</a></li>
-                <li><a href="join-us.php">Join us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about-us">About us</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="cases">Cases</a></li>
+                <li><a href="join-us">Join us</a></li>
+                <li><a href="contact">Contact</a></li>
             </ul>
         </nav>
         <div class="overlay" id="overlay"></div>
@@ -55,19 +56,12 @@
                 Are you passionate about making the difference?<br />
                 Say hello!
             </h2>
-            <div class="message-area">
-                <?php
-                if (isset($_GET['message'])) {
-                    echo "<p style='color: green;'>" . htmlspecialchars($_GET['message']) . "</p>";
-                }
-                if (isset($_GET['error'])) {
-                    echo "<p style='color: red;'>" . htmlspecialchars($_GET['error']) . "</p>";
-                }
-                ?>
+            <div id="message-area" style="padding: 0 70px">
+              <p></p>
             </div>
             <div class="form-area">
                 <div class="form-container">
-                    <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+                    <form id="contact-us"  enctype="multipart/form-data">
                         <div class="form-grid">
                             <div>
                                 <input type="text" id="first_name" name="first_name" placeholder="First name" required>
@@ -118,11 +112,11 @@
             </div>
             <div class="footer-menu">
                 <ul>
-                    <li><a href="about-us.html">About us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="cases.html">Cases</a></li>
-                    <li><a href="join-us.php">Join us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about-us">About us</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="cases">Cases</a></li>
+                    <li><a href="join-us">Join us</a></li>
+                    <li><a href="contact">Contact</a></li>
                 </ul>
             </div>
             <div class="copyright">

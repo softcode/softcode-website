@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    container_name: softcode-web
+
+  composer:
+    image: composer:latest
+    working_dir: /app/api
+    volumes:
+      - .:/app
+    entrypoint: ["composer"]

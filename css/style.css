@@ -905,3 +905,7 @@ textarea {
         padding:20px 0;
     }
 }
+
+#message-area {
+    padding:0 70px;
+}
