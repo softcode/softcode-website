@@ -5,7 +5,7 @@ $(document).ready(function () {
     const formData = new FormData(form);
 
     try {
-      fetch("/api/submit_form", {
+      fetch("/submit_form", {
         method: "POST",
         body: formData,
       })

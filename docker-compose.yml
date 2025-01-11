@@ -6,12 +6,12 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - .:/var/www/html
+      - .:/var/www/softcode.se
     container_name: softcode-web
 
   composer:
     image: composer:latest
-    working_dir: /app/api
+    working_dir: /app
     volumes:
       - .:/app
     entrypoint: ["composer"]

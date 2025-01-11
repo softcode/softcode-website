@@ -3,7 +3,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+
+
 
 function sendResponse($response, $statusCode = 200)
 {
@@ -66,7 +69,7 @@ function sendMail()
       "Additional Info: $additionalInfo<br>";
 
     //Attach the uploaded file
-    if (!$mail->addAttachment($uploadfile, 'Resume')) {
+    if ($uploadfile && !$mail->addAttachment($uploadfile, 'Resume')) {
       return 'Failed to attach file ' . $_FILES['userfile']['name'];
     }
 
