@@ -12,7 +12,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 
 # Set the working directory
-WORKDIR /var/www/html
+WORKDIR /var/www/softcode.se
 
 # Copy your website files to the container
 COPY . .
@@ -21,15 +21,12 @@ COPY . .
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set the working directory
-WORKDIR /var/www/html/api
-
 # Install dependencies with Composer
 RUN composer install
 
 
 # Set the working directory
-WORKDIR /var/www/html
+WORKDIR /var/www/softcode.se/public
 
 # Expose port 80 for HTTP traffic
 EXPOSE 80
